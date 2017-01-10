@@ -18,6 +18,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @restaurant.name %>">
+      </div>
+
       <!-- Label and input for description -->
       <div class="form-group">
         <label for="description" class="control-label">
@@ -53,24 +62,6 @@
 
         <%= cl_image_tag(@restaurant.coverphoto.to_s, :width => 90, :height => 90, :crop => :thumb) %>
         <input type="file" id="coverphoto" name="coverphoto" class="form-control">
-      </div>
-
-      <!-- Label and input for restaurants_id -->
-      <div class="form-group">
-        <label for="restaurants_id" class="control-label">
-          Restaurants
-        </label>
-
-        <input type="text" id="restaurants_id" name="restaurants_id" placeholder="Restaurants" class="form-control" value="<%= @restaurant.restaurants_id %>">
-      </div>
-
-      <!-- Label and input for restaurant_name -->
-      <div class="form-group">
-        <label for="restaurant_name" class="control-label">
-          Restaurant name
-        </label>
-
-        <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Restaurant name" class="form-control" value="<%= @restaurant.restaurant_name %>">
       </div>
 
       <!-- Label and input for tag -->

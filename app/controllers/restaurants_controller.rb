@@ -22,12 +22,11 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new
 
+    @restaurant.name = params[:name]
     @restaurant.description = params[:description]
     @restaurant.address = params[:address]
     @restaurant.website = params[:website]
     @restaurant.coverphoto = params[:coverphoto]
-    @restaurant.restaurants_id = params[:restaurants_id]
-    @restaurant.restaurant_name = params[:restaurant_name]
     @restaurant.tag = params[:tag]
     @restaurant.average_rating = params[:average_rating]
     @restaurant.review_count = params[:review_count]
@@ -57,12 +56,11 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
 
+    @restaurant.name = params[:name]
     @restaurant.description = params[:description]
     @restaurant.address = params[:address]
     @restaurant.website = params[:website]
     @restaurant.coverphoto = params[:coverphoto]
-    @restaurant.restaurants_id = params[:restaurants_id]
-    @restaurant.restaurant_name = params[:restaurant_name]
     @restaurant.tag = params[:tag]
     @restaurant.average_rating = params[:average_rating]
     @restaurant.review_count = params[:review_count]

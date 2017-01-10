@@ -5,6 +5,9 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @restaurant.name %></dd>
+
       <dt>Description</dt>
       <dd><%= @restaurant.description %></dd>
 
@@ -16,12 +19,6 @@
 
       <dt>Coverphoto</dt>
       <dd><img src="<%= @restaurant.coverphoto %>" class="img-responsive"></dd>
-
-      <dt>Restaurants</dt>
-      <dd><%= @restaurant.restaurants_id %></dd>
-
-      <dt>Restaurant name</dt>
-      <dd><%= @restaurant.restaurant_name %></dd>
 
       <dt>Tag</dt>
       <dd><%= @restaurant.tag %></dd>
