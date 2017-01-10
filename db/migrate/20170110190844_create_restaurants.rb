@@ -8,6 +8,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :coverphoto
       t.string :tag
       t.float :average_rating
+      t.integer :review_count
 
       t.timestamps
 
