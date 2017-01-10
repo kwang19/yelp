@@ -15,10 +15,22 @@
       <dd><img src="<%= @review.photos %>" class="img-responsive"></dd>
 
       <dt>Customer</dt>
-      <dd><%= @review.customer_id %></dd>
+      <dd>
+        <% if @review.customer.present? %>
+          <a href="/customers/<%= @review.customer_id %>">
+            <%= @review.customer.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Restaurant</dt>
-      <dd><%= @review.restaurant_id %></dd>
+      <dd>
+        <% if @review.restaurant.present? %>
+          <a href="/restaurants/<%= @review.restaurant_id %>">
+            <%= @review.restaurant.description %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
