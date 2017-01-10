@@ -57,7 +57,7 @@
       <% @restaurant.reviews.each do |review| %>
         <li class="list-group-item">
           <a href="/reviews/<%= review.id %>">
-            <%= review.rating %>
+            <%= review.id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/reviews/<%= review.id %>" class="btn btn-primary">
@@ -111,7 +111,7 @@
           Reviewer
         </label>
 
-        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :user_id), :class => "form-control") %>
+        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for restaurant_id -->
