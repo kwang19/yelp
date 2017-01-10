@@ -1,10 +1,10 @@
-class Restaurant < ApplicationRecord
-  mount_uploader :coverphoto, CoverphotoUploader
-
+class Reviewer < ApplicationRecord
   # Direct associations
 
   has_many   :reviews,
              :dependent => :destroy
+
+  belongs_to :user
 
   # Indirect associations
 

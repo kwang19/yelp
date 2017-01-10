@@ -3,9 +3,9 @@ class Review < ApplicationRecord
 
   # Direct associations
 
-  belongs_to :restaurant
+  belongs_to :reviewer
 
-  belongs_to :customer
+  belongs_to :restaurant
 
   # Indirect associations
 

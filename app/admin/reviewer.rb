@@ -1,6 +1,6 @@
-ActiveAdmin.register Restaurant do
+ActiveAdmin.register Reviewer do
 
- permit_params :description, :address, :website, :coverphoto, :restaurants_id, :restaurant_name, :tag, :average_rating, :review_count
+ permit_params :user_id, :reviews_count, :average_rating, :name
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
