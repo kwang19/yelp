@@ -33,7 +33,6 @@ class ReviewersController < ApplicationController
     @reviewer = Reviewer.new
 
     @reviewer.user_id = params[:user_id]
-    @reviewer.reviews_count = params[:reviews_count]
     @reviewer.average_rating = params[:average_rating]
 
     save_status = @reviewer.save
@@ -60,7 +59,6 @@ class ReviewersController < ApplicationController
 
   def update
     @reviewer = Reviewer.find(params[:id])
-    @reviewer.reviews_count = params[:reviews_count]
     @reviewer.average_rating = params[:average_rating]
 
     save_status = @reviewer.save

@@ -21,15 +21,6 @@
       <!-- Label and input for user_id -->
       <input type="hidden" name="user_id" value="<%= current_user.id %>">
 
-      <!-- Label and input for reviews_count -->
-      <div class="form-group">
-        <label for="reviews_count" class="control-label">
-          Reviews count
-        </label>
-
-        <input type="text" id="reviews_count" name="reviews_count" placeholder="Reviews count" class="form-control" value="<%= @reviewer.reviews_count %>">
-      </div>
-
       <!-- Label and input for average_rating -->
       <div class="form-group">
         <label for="average_rating" class="control-label">
