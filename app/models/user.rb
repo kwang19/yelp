@@ -1,14 +1,10 @@
-class Customer < ApplicationRecord
+class User < ApplicationRecord
   # Direct associations
 
-  has_many   :reviews,
+  has_one    :reviewer,
              :dependent => :destroy
 
   # Indirect associations
-
-  has_many   :restaurants,
-             :through => :reviews,
-             :source => :restaurant
 
   # Validations
 

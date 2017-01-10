@@ -1,17 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :current_user_must_be_review_user, :only => [:edit, :update, :destroy]
-
-  def current_user_must_be_review_customer
-    review = Review.find(params[:id])
-
-    unless current_user == review.customer
-      redirect_to :back, :alert => "You are not authorized for that."
-    end
-  end
-
   def index
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(:distinct => true).includes(:customer, :restaurant).page(params[:page]).per(10)
+    @reviews = @q.result(:distinct => true).includes(:restaurant, :reviewer).page(params[:page]).per(10)
 
     render("reviews/index.html.erb")
   end
@@ -34,7 +24,7 @@ class ReviewsController < ApplicationController
     @review.rating = params[:rating]
     @review.content = params[:content]
     @review.photos = params[:photos]
-    @review.customer_id = params[:customer_id]
+    @review.reviewer_id = params[:reviewer_id]
     @review.restaurant_id = params[:restaurant_id]
 
     save_status = @review.save
@@ -65,7 +55,7 @@ class ReviewsController < ApplicationController
     @review.rating = params[:rating]
     @review.content = params[:content]
     @review.photos = params[:photos]
-    @review.customer_id = params[:customer_id]
+    @review.reviewer_id = params[:reviewer_id]
     @review.restaurant_id = params[:restaurant_id]
 
     save_status = @review.save

@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
     @q = Restaurant.ransack(params[:q])
-    @restaurants = @q.result(:distinct => true).includes(:reviews, :customers).page(params[:page]).per(10)
+    @restaurants = @q.result(:distinct => true).includes(:reviews).page(params[:page]).per(10)
 
     render("restaurants/index.html.erb")
   end
@@ -29,6 +29,8 @@ class RestaurantsController < ApplicationController
     @restaurant.restaurants_id = params[:restaurants_id]
     @restaurant.restaurant_name = params[:restaurant_name]
     @restaurant.tag = params[:tag]
+    @restaurant.average_rating = params[:average_rating]
+    @restaurant.review_count = params[:review_count]
 
     save_status = @restaurant.save
 
@@ -62,6 +64,8 @@ class RestaurantsController < ApplicationController
     @restaurant.restaurants_id = params[:restaurants_id]
     @restaurant.restaurant_name = params[:restaurant_name]
     @restaurant.tag = params[:tag]
+    @restaurant.average_rating = params[:average_rating]
+    @restaurant.review_count = params[:review_count]
 
     save_status = @restaurant.save
 

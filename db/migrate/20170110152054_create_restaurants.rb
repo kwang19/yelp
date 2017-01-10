@@ -8,6 +8,8 @@ class CreateRestaurants < ActiveRecord::Migration
       t.integer :restaurants_id
       t.string :restaurant_name
       t.string :tag
+      t.float :average_rating
+      t.integer :review_count
 
       t.timestamps
 
