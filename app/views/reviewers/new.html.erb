@@ -1,0 +1,58 @@
+<!-- Validation failure messages -->
+<% if @reviewer.errors.any? %>
+  <% @reviewer.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Reviewer</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_reviewer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for reviews_count -->
+      <div class="form-group">
+        <label for="reviews_count" class="control-label">
+          Reviews count
+        </label>
+
+        <input type="text" id="reviews_count" name="reviews_count" placeholder="Reviews count" class="form-control" value="<%= @reviewer.reviews_count %>">
+      </div>
+
+      <!-- Label and input for average_rating -->
+      <div class="form-group">
+        <label for="average_rating" class="control-label">
+          Average rating
+        </label>
+
+        <input type="text" id="average_rating" name="average_rating" placeholder="Average rating" class="form-control" value="<%= @reviewer.average_rating %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @reviewer.name %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Reviewer
+      </button>
+      or
+      <a href="/reviewers">Cancel</a>
+    </form>
+  </div>
+</div>

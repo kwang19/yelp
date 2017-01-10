@@ -2,6 +2,23 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "reviews#index"
+  # Routes for the Reviewer resource:
+  # CREATE
+  get "/reviewers/new", :controller => "reviewers", :action => "new"
+  post "/create_reviewer", :controller => "reviewers", :action => "create"
+
+  # READ
+  get "/reviewers", :controller => "reviewers", :action => "index"
+  get "/reviewers/:id", :controller => "reviewers", :action => "show"
+
+  # UPDATE
+  get "/reviewers/:id/edit", :controller => "reviewers", :action => "edit"
+  post "/update_reviewer/:id", :controller => "reviewers", :action => "update"
+
+  # DELETE
+  get "/delete_reviewer/:id", :controller => "reviewers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Restaurant resource:
   # CREATE
   get "/restaurants/new", :controller => "restaurants", :action => "new"
@@ -36,11 +53,11 @@ Rails.application.routes.draw do
   get "/delete_review/:id", :controller => "reviews", :action => "destroy"
   #------------------------------
 
-  devise_for :customers
-  # Routes for the Customer resource:
+  devise_for :users
+  # Routes for the User resource:
   # READ
-  get "/customers", :controller => "customers", :action => "index"
-  get "/customers/:id", :controller => "customers", :action => "show"
+  get "/users", :controller => "users", :action => "index"
+  get "/users/:id", :controller => "users", :action => "show"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

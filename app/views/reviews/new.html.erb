@@ -45,8 +45,14 @@
         <input type="file" id="photos" name="photos" class="form-control">
       </div>
 
-      <!-- Label and input for customer_id -->
-      <input type="hidden" name="customer_id" value="<%= current_user.id %>">
+      <!-- Label and input for reviewer_id -->
+      <div class="form-group">
+        <label for="reviewer_id" class="control-label">
+          Reviewer
+        </label>
+
+        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :user_id, @review.reviewer_id), :class => "form-control") %>
+      </div>
 
       <!-- Label and input for restaurant_id -->
       <div class="form-group">

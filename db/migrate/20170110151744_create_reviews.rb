@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :rating
       t.string :content
       t.string :photos
-      t.integer :customer_id
+      t.integer :reviewer_id
       t.integer :restaurant_id
 
       t.timestamps

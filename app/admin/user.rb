@@ -1,4 +1,4 @@
-ActiveAdmin.register Customer do
+ActiveAdmin.register User do
 
  permit_params :email, :password
 
