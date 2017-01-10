@@ -143,8 +143,8 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
         <th>Name</th>
+        <th>User</th>
         <th>Reviews count</th>
         <th>Average rating</th>
         <th>Actions</th>
@@ -152,6 +152,7 @@
 
       <% @reviewers.each do |reviewer| %>
       <tr>
+        <td><%= reviewer.name %></td>
         <td>
           <% if reviewer.user.present? %>
             <a href="/users/<%= reviewer.user.id %>">
@@ -159,7 +160,6 @@
             </a>
           <% end %>
         </td>
-        <td><%= reviewer.name %></td>
         <td><%= reviewer.reviews_count %></td>
         <td><%= reviewer.average_rating %></td>
         <td>

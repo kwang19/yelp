@@ -5,6 +5,9 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @reviewer.name %></dd>
+
       <dt>User</dt>
       <dd>
         <% if @reviewer.user.present? %>
@@ -13,9 +16,6 @@
           </a>
         <% end %>
       </dd>
-
-      <dt>Name</dt>
-      <dd><%= @reviewer.name %></dd>
 
       <dt>Reviews count</dt>
       <dd><%= @reviewer.reviews_count %></dd>
