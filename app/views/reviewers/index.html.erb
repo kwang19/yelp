@@ -9,6 +9,18 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+  <%= f.label :review_count, "Review count" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :review_count_gteq, :class => "form-control", :placeholder => "Review count greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :review_count_lteq, :class => "form-control", :placeholder => "Review count less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
   <%= f.label :average_rating, "Average rating" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
@@ -19,6 +31,11 @@
     </div>
   </div>
 </div>
+
+<div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
 
 <div class="form-group">
           <%= f.label :created_at, "Created at" %>
@@ -126,13 +143,16 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Name</th>
         <th>User</th>
         <th>Average rating</th>
+        <th>Review count</th>
         <th>Actions</th>
       </tr>
 
       <% @reviewers.each do |reviewer| %>
       <tr>
+        <td><%= reviewer.name %></td>
         <td>
           <% if reviewer.user.present? %>
             <a href="/users/<%= reviewer.user.id %>">
@@ -141,6 +161,7 @@
           <% end %>
         </td>
         <td><%= reviewer.average_rating %></td>
+        <td><%= reviewer.review_count %></td>
         <td>
           <a href="/reviewers/<%= reviewer.id %>" class="btn btn-primary">Show</a>
           
