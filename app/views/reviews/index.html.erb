@@ -65,7 +65,15 @@
           });
       </script>
 
-        
+        <div class="form-group">
+      <%= f.label :restaurant_name_cont, "Restaurant name contains" %>
+      <%= f.text_field :restaurant_name_cont, :class => "form-control", :placeholder => "Restaurant name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :reviewer_name_cont, "Reviewer name contains" %>
+      <%= f.text_field :reviewer_name_cont, :class => "form-control", :placeholder => "Reviewer name contains" %>
+    </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -97,14 +105,14 @@
         <td>
           <% if review.reviewer.present? %>
             <a href="/reviewers/<%= review.reviewer.id %>">
-              <%= review.reviewer.id %>
+              <%= review.reviewer.name %>
             </a>
           <% end %>
         </td>
         <td>
           <% if review.restaurant.present? %>
             <a href="/restaurants/<%= review.restaurant.id %>">
-              <%= review.restaurant.id %>
+              <%= review.restaurant.name %>
             </a>
           <% end %>
         </td>
