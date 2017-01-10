@@ -21,6 +21,15 @@
       
       
 
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @reviewer.name %>">
+      </div>
+
       <!-- Label and input for reviews_count -->
       <div class="form-group">
         <label for="reviews_count" class="control-label">
@@ -37,15 +46,6 @@
         </label>
 
         <input type="text" id="average_rating" name="average_rating" placeholder="Average rating" class="form-control" value="<%= @reviewer.average_rating %>">
-      </div>
-
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
-
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @reviewer.name %>">
       </div>
 
       <button class="btn btn-warning">
