@@ -14,11 +14,11 @@
       <dt>Photos</dt>
       <dd><img src="<%= @review.photos %>" class="img-responsive"></dd>
 
-      <dt>Customer</dt>
+      <dt>Reviewer</dt>
       <dd>
-        <% if @review.customer.present? %>
-          <a href="/customers/<%= @review.customer_id %>">
-            <%= @review.customer.email %>
+        <% if @review.reviewer.present? %>
+          <a href="/reviewers/<%= @review.reviewer_id %>">
+            <%= @review.reviewer.user_id %>
           </a>
         <% end %>
       </dd>
@@ -38,14 +38,12 @@
       <a href="/reviews" class="btn btn-primary">
         Back
       </a>
-      <% if current_user == @review.customer %>
-        <a href="/reviews/<%= @review.id %>/edit" class="btn btn-warning">
-          Edit
-        </a>
-        <a href="/delete_review/<%= @review.id %>" class="btn btn-danger" rel="nofollow">
-          Delete
-        </a>
-      <% end %>
+      <a href="/reviews/<%= @review.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_review/<%= @review.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
     </div>
   </div>
 </div>

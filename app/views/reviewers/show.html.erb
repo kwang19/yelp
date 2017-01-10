@@ -1,54 +1,47 @@
 <div class="page-header">
-  <h3>Restaurant #<%= @restaurant.id %></h3>
+  <h3>Reviewer #<%= @reviewer.id %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Description</dt>
-      <dd><%= @restaurant.description %></dd>
+      <dt>User</dt>
+      <dd>
+        <% if @reviewer.user.present? %>
+          <a href="/users/<%= @reviewer.user_id %>">
+            <%= @reviewer.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
-      <dt>Address</dt>
-      <dd><%= @restaurant.address %></dd>
-
-      <dt>Website</dt>
-      <dd><%= @restaurant.website %></dd>
-
-      <dt>Coverphoto</dt>
-      <dd><img src="<%= @restaurant.coverphoto %>" class="img-responsive"></dd>
-
-      <dt>Restaurants</dt>
-      <dd><%= @restaurant.restaurants_id %></dd>
-
-      <dt>Restaurant name</dt>
-      <dd><%= @restaurant.restaurant_name %></dd>
-
-      <dt>Tag</dt>
-      <dd><%= @restaurant.tag %></dd>
+      <dt>Reviews count</dt>
+      <dd><%= @reviewer.reviews_count %></dd>
 
       <dt>Average rating</dt>
-      <dd><%= @restaurant.average_rating %></dd>
+      <dd><%= @reviewer.average_rating %></dd>
 
-      <dt>Review count</dt>
-      <dd><%= @restaurant.review_count %></dd>
+      <dt>Name</dt>
+      <dd><%= @reviewer.name %></dd>
 
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/restaurants" class="btn btn-primary">
+      <a href="/reviewers" class="btn btn-primary">
         Back
       </a>
-      <a href="/restaurants/<%= @restaurant.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_restaurant/<%= @restaurant.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @reviewer.user %>
+        <a href="/reviewers/<%= @reviewer.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_reviewer/<%= @reviewer.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
 
-<!-- A Restaurant has many reviews -->
+<!-- A Reviewer has many reviews -->
 
 <div class="row">
   <div class="col-md-12">
@@ -57,7 +50,7 @@
         Reviews
       </li>
 
-      <% @restaurant.reviews.each do |review| %>
+      <% @reviewer.reviews.each do |review| %>
         <li class="list-group-item">
           <a href="/reviews/<%= review.id %>">
             <%= review.rating %>
@@ -109,16 +102,16 @@
       </div>
 
       <!-- Label and input for reviewer_id -->
-      <div class="form-group">
-        <label for="reviewer_id" class="control-label">
-          Reviewer
-        </label>
-
-        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :user_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="reviewer_id" value="">
 
       <!-- Label and input for restaurant_id -->
-      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+      <div class="form-group">
+        <label for="restaurant_id" class="control-label">
+          Restaurant
+        </label>
+
+        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :description), :class => "form-control") %>
+      </div>
 
       <button class="btn btn-block btn-success">
         Create Review
