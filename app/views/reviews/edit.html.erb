@@ -51,7 +51,7 @@
           Customer
         </label>
 
-        <input type="text" id="customer_id" name="customer_id" placeholder="Customer" class="form-control" value="<%= @review.customer_id %>">
+        <%= select_tag(:customer_id, options_from_collection_for_select(Customer.all, :id, :email, @review.customer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for restaurant_id -->
