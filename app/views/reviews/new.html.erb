@@ -51,7 +51,7 @@
           Reviewer
         </label>
 
-        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :user_id, @review.reviewer_id), :class => "form-control") %>
+        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :id, @review.reviewer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for restaurant_id -->
@@ -60,7 +60,7 @@
           Restaurant
         </label>
 
-        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :description, @review.restaurant_id), :class => "form-control") %>
+        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :id, @review.restaurant_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
