@@ -29,7 +29,6 @@ class RestaurantsController < ApplicationController
     @restaurant.coverphoto = params[:coverphoto]
     @restaurant.tag = params[:tag]
     @restaurant.average_rating = params[:average_rating]
-    @restaurant.review_count = params[:review_count]
 
     save_status = @restaurant.save
 
@@ -63,7 +62,6 @@ class RestaurantsController < ApplicationController
     @restaurant.coverphoto = params[:coverphoto]
     @restaurant.tag = params[:tag]
     @restaurant.average_rating = params[:average_rating]
-    @restaurant.review_count = params[:review_count]
 
     save_status = @restaurant.save
 
