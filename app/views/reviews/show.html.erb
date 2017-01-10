@@ -18,7 +18,7 @@
       <dd>
         <% if @review.reviewer.present? %>
           <a href="/reviewers/<%= @review.reviewer_id %>">
-            <%= @review.reviewer.id %>
+            <%= @review.reviewer.name %>
           </a>
         <% end %>
       </dd>
@@ -27,7 +27,7 @@
       <dd>
         <% if @review.restaurant.present? %>
           <a href="/restaurants/<%= @review.restaurant_id %>">
-            <%= @review.restaurant.id %>
+            <%= @review.restaurant.name %>
           </a>
         <% end %>
       </dd>
