@@ -8,6 +8,10 @@ class Restaurant < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :customers,
+             :through => :reviews,
+             :source => :customer
+
   # Validations
 
 end

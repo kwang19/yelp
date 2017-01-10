@@ -97,6 +97,11 @@
   </div>
 </div>
 
+<div class="form-group">
+      <%= f.label :customers_email_cont, "Customer email contains" %>
+      <%= f.text_field :customers_email_cont, :class => "form-control", :placeholder => "Customer email contains" %>
+    </div>
+
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/restaurants" class="btn btn-default btn-block mb-1">Clear filters</a>
