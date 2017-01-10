@@ -111,7 +111,7 @@
           Reviewer
         </label>
 
-        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :name), :class => "form-control") %>
+        <%= select_tag(:reviewer_id, options_from_collection_for_select(Reviewer.all, :id, :id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for restaurant_id -->
