@@ -1,6 +1,6 @@
 ActiveAdmin.register Reviewer do
 
- permit_params :name, :user_id, :reviews_count, :average_rating
+ permit_params :user_id, :reviews_count, :average_rating
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

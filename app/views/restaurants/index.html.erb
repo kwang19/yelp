@@ -14,18 +14,6 @@
   </div>
 
 <div class="form-group">
-  <%= f.label :review_count, "Review count" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :review_count_gteq, :class => "form-control", :placeholder => "Review count greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :review_count_lteq, :class => "form-control", :placeholder => "Review count less than or equal to" %>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
   <%= f.label :average_rating, "Average rating" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
@@ -130,7 +118,6 @@
         <th>Coverphoto</th>
         <th>Tag</th>
         <th>Average rating</th>
-        <th>Review count</th>
         <th>Actions</th>
       </tr>
 
@@ -143,7 +130,6 @@
         <td><img src='<%= restaurant.coverphoto %>' class='img-responsive'></td>
         <td><%= restaurant.tag %></td>
         <td><%= restaurant.average_rating %></td>
-        <td><%= restaurant.review_count %></td>
         <td>
           <a href="/restaurants/<%= restaurant.id %>" class="btn btn-primary">Show</a>
           <a href="/restaurants/<%= restaurant.id %>/edit" class="btn btn-warning">Edit</a>
